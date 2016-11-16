@@ -3,7 +3,7 @@ This script finds who is online in vkontakte social network. It returns list of 
 ## launching
 Type following command in console to launch script:`vk_friends_online.py`  
 After this you will be prompted to enter your login and password.
-## Two ways of writing get_friends_online_list function this script.
+## Two ways of writing get_friends_online_list function
 There are two ways of getting online friends by VK API. The first way is to call get.friends.getOnline() for getting friends ids and then pass it to get.users() method which give us info from user id. It is **shorter** then the second way.
 
     def get_friends_online_list(login, password):
