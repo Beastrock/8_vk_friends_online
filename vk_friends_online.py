@@ -14,7 +14,7 @@ def get_user_password():
 
 def get_friends_online_list(login, password):
     friends_online_list = []
-    online = 1
+    ONLINE = 1
     session = vk.AuthSession(
         app_id=APP_ID,
         user_login=login,
@@ -23,15 +23,15 @@ def get_friends_online_list(login, password):
     api = vk.API(session)
     all_friends_info = api.friends.get(fields="online", order="name")
     for friend in all_friends_info:
-        if friend["online"] == online:
+        if friend["online"] == ONLINE:
             friends_online_list.append(friend)
     return friends_online_list
 
 
 def output_online_friends_to_console(friends_online_list):
-    from_one = 1
+    FROM_ONE = 1
     print("Number of online friends: {}".format(len(friends_online_list)))
-    for number, online_friend in enumerate(friends_online_list, from_one):
+    for number, online_friend in enumerate(friends_online_list, FROM_ONE):
         if online_friend:
             print("{}) {fr[first_name]} {fr[last_name]}".
                   format(number, fr=online_friend))
