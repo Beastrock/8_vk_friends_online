@@ -3,8 +3,8 @@ This script finds who is online in vkontakte social network. It returns list of 
 ## launching
 Type following command in console to launch script:`vk_friends_online.py`  
 After this you will be prompted to enter your login and password.
-## Two ways of writting get_friends_online_list function this script.
-There are two ways of getting online friends by VK API. The first way is to call get.friends.getOnline() for getting friends ids and then pass it to get.users() method which give us info from user id.    
+## Two ways of writing get_friends_online_list function this script.
+There are two ways of getting online friends by VK API. The first way is to call get.friends.getOnline() for getting friends ids and then pass it to get.users() method which give us info from user id. It is <b>shorter<b> then the second way.
 
     def get_friends_online_list(login, password):
         session = vk.AuthSession(
@@ -17,7 +17,7 @@ There are two ways of getting online friends by VK API. The first way is to call
         online_friends_ids = api.friends.getOnline()
         return api.users.get(user_ids=online_friends_ids) 
 
-Second way is call only one API method get.users with parametres = "online".  
+Second way is call only one API method get.users with parametres = "online". Comparing from the first way it allows <b>to order friends list<b> by name, which is more convenient.
 
     def get_friends_online_list(login, password):
         friends_online_list = []
@@ -34,5 +34,4 @@ Second way is call only one API method get.users with parametres = "online".
                 friends_online_list.append(friend)
         return friends_online_list   
    
-This script is written in a second way because friends.get() online allows to order the friends list by name. It is more convenient, but it is slower and a bit longer. 
-As it aren't any additional conditions at the task I have choosen the second way.
+As it aren't any additional conditions at the task it was choosen to write it in a second way.
