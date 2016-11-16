@@ -21,7 +21,7 @@ Second way is call only one API method get.users with parametres = "online". Com
 
     def get_friends_online_list(login, password):
         friends_online_list = []
-        online = 1
+        ONLINE = 1
         session = vk.AuthSession(
             app_id=APP_ID,
             user_login=login,
@@ -30,7 +30,7 @@ Second way is call only one API method get.users with parametres = "online". Com
         api = vk.API(session)
         all_friends_info = api.friends.get(fields="online", order="name")
         for friend in all_friends_info:
-            if friend["online"] == online:
+            if friend["online"] == ONLINE:
                 friends_online_list.append(friend)
         return friends_online_list   
    
