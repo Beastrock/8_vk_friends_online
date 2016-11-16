@@ -1,5 +1,5 @@
 # 8_vk_friends_online
-This script finds who is online in vkontakte social network. It returns list of your friends, which are on the site now.
+This script finds which of your friends are online in vkontakte social network.
 ## launching
 Type following command in console to launch script:`vk_friends_online.py`  
 After this you will be prompted to enter your login and password.
