@@ -17,7 +17,7 @@ There are two ways of getting online friends by VK API. The first way is to call
         online_friends_ids = api.friends.getOnline()
         return api.users.get(user_ids=online_friends_ids) 
 
-Second way is call only one API method:  with parametres perform get.users with parametres = "online".  
+Second way is call only one API method get.users with parametres = "online".  
 
     def get_friends_online_list(login, password):
         friends_online_list = []
