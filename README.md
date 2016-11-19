@@ -32,4 +32,4 @@ Second way is call only one API method get.users with parametres = "online". Com
     def get_online_friends_list(all_friends_info):
         return [friend for friend in all_friends_info if friend["online"] == 1]
    
-It was choosen to write it in a second way as it aren't any additional conditions at the task on devman.org.
+It was choosen to write it in a second way as there aren't any additional conditions at the task on devman.org.
