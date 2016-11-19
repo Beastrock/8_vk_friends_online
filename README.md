@@ -17,11 +17,11 @@ There are two ways of getting online friends by VK API. The first way is to call
         online_friends_ids = api.friends.getOnline()
         return api.users.get(user_ids=online_friends_ids) 
 
-Second way is call only one API method get.users with parametres = "online". Comparing from the first way it allows **to order friends list** by name with order = "name" parameter, which is more convenient, but it has online-checking function.
+Second way is call only one API method get.users with parametres = "online". Comparing from the first way it allows **to order friends list** by name with `order="name"` parameter, which is more convenient, but it has online-checking function.
 
     def get_all_friends_info(login, password):
         session = vk.AuthSession(
-            app_id=APP_ID,
+            app_id=APP_ID
             user_login=login,
             user_password=password,
         )
