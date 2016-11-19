@@ -12,33 +12,28 @@ def get_user_password():
     return getpass(prompt="Input password:\n")
 
 
-def get_friends_online_list(login, password):
-    friends_online_list = []
-    ONLINE = 1
+def get_all_friends_info(login, password):
     session = vk.AuthSession(
         app_id=APP_ID,
         user_login=login,
         user_password=password,
     )
     api = vk.API(session)
-    all_friends_info = api.friends.get(fields="online", order="name")
-    for friend in all_friends_info:
-        if friend["online"] == ONLINE:
-            friends_online_list.append(friend)
-    return friends_online_list
+    return api.friends.get(fields="online", order="name")
 
 
-def output_online_friends_to_console(friends_online_list):
-    FROM_ONE = 1
-    print("Number of online friends: {}".format(len(friends_online_list)))
-    for number, online_friend in enumerate(friends_online_list, FROM_ONE):
+def get_online_friends_list(all_friends_info):
+    return [friend for friend in all_friends_info if friend["online"] == 1]
+
+
+def output_online_friends_to_console(online_friends_list):
+    print("Number of online friends: {}".format(len(online_friends_list)))
+    for number, online_friend in enumerate(online_friends_list, 1):
         if online_friend:
-            print("{}) {fr[first_name]} {fr[last_name]}".
-                  format(number, fr=online_friend))
+            print("{}) {f[first_name]} {f[last_name]}".format(number, f=online_friend))
 
 
 if __name__ == '__main__':
-    login = get_user_login()
-    password = get_user_password()
-    friends_online = get_friends_online_list(login, password)
-    output_online_friends_to_console(friends_online)
+    all_friends_info = get_all_friends_info(get_user_login(), get_user_password())
+    online_friends_list = get_online_friends_list(all_friends_info)
+    output_online_friends_to_console(online_friends_list)
