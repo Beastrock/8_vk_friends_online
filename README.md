@@ -11,7 +11,7 @@ There are two ways of getting online friends by VK API. The first way is to call
             app_id=APP_ID,
             user_login=login,
             user_password=password,
-            scope="friends"  #it works only with this parameter
+            scope="friends"
         )
         api = vk.API(session)
         online_friends_ids = api.friends.getOnline()
