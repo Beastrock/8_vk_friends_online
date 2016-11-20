@@ -17,7 +17,7 @@ There are two ways of getting online friends by VK API. The first way is to call
         online_friends_ids = api.friends.getOnline(order="hints") # here is the difference
         return api.users.get(user_ids=online_friends_ids) 
 
-Second way is call only one API method `get.users` with `fields="online"` which gets **all you friends IDs**. Comparing with the first way it allows **to order friends list** by name with `order="name"` parameter, which is more convenient for me than  `"random"` and `"hints"` type of order in first way method.  However, it has additional online-checking function and longer code length.
+Second way is call only one API method `get.users` with `fields="online"` which gets **all you friends IDs**. Comparing with the first way it allows **to order friends list** by name with `order="name"` parameter, which is more convenient for me than  `"random"` and `"hints"` type of order in first way method.  However, it has additional online-checking function and longer code length. Also, as it is written in vk.API documentation it works slower then the other order types.
 
     def get_all_friends_info(login, password):
         session = vk.AuthSession(
