@@ -1,7 +1,7 @@
 # 8_vk_friends_online
 
 
-**The script will show list of your friends which status are online**
+**The script shows list of your Vkontakte friends which status is online**
 
 
 ### Requirement
